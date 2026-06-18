@@ -3,35 +3,40 @@ import { Layout } from "@/components/layout/Layout";
 export default function Privacy() {
   return (
     <Layout>
-      <div className="max-w-5xl mx-auto w-full px-6 md:px-12 py-12 md:py-24 bg-white">
-        
-        <div className="mb-12 md:mb-24">
-          <h1 className="text-2xl md:text-3xl font-black tracking-tighter uppercase text-black">PRIVACY POLICY</h1>
+      <div className="max-w-3xl mx-auto w-full px-5 md:px-10 py-12">
+        <div className="mb-10">
+          <p className="text-xs uppercase tracking-widest text-black/50 font-medium mb-1">Daivam Origins</p>
+          <h1 className="text-2xl md:text-3xl font-bold text-black">Privacy Policy</h1>
         </div>
 
-        <div className="space-y-16">
-          
-          <section className="space-y-4">
-            <h2 className="text-[1rem] font-bold tracking-widest uppercase text-black">DATA COLLECTION</h2>
-            <p className="text-[0.875rem] font-normal tracking-wide text-black leading-relaxed max-w-3xl pl-4 border-l border-black">
-              WE ONLY COLLECT INFORMATION NECESSARY TO PROCESS YOUR ACQUISITIONS AND DELIVER A BESPOKE EXPERIENCE. THIS INCLUDES YOUR NAME, CONTACT DETAILS, AND SHIPPING DESTINATION. WE DO NOT RETAIN PAYMENT DATA ON OUR SERVERS.
-            </p>
-          </section>
-
-          <section className="space-y-4">
-            <h2 className="text-[1rem] font-bold tracking-widest uppercase text-black">USAGE OF DATA</h2>
-            <p className="text-[0.875rem] font-normal tracking-wide text-black leading-relaxed max-w-3xl pl-4 border-l border-black">
-              YOUR DATA IS UTILIZED STRICTLY FOR ORDER FULFILLMENT, CUSTOMS DOCUMENTATION, AND COMMUNICATION REGARDING YOUR COLLECTION PIECES. WE NEVER SELL OR SHARE YOUR PRIVATE INFORMATION WITH THIRD PARTIES EXCEPT LOGISTICS PARTNERS REQUIRED FOR DELIVERY.
-            </p>
-          </section>
-
-          <section className="space-y-4">
-            <h2 className="text-[1rem] font-bold tracking-widest uppercase text-black">SECURITY</h2>
-            <p className="text-[0.875rem] font-normal tracking-wide text-black leading-relaxed max-w-3xl pl-4 border-l border-black">
-              ALL TRANSACTIONS ARE ENCRYPTED AND HANDLED VIA SECURE CHANNELS. OUR SYSTEMS ARE REGULARLY AUDITED TO ENSURE YOUR DISCRETION AND SECURITY.
-            </p>
-          </section>
-
+        <div className="space-y-10">
+          {[
+            {
+              heading: "Data Collection",
+              body: "We collect only the information necessary to process your acquisition and deliver a bespoke experience. This includes your name, contact details, and shipping destination. We do not retain payment data on our servers.",
+            },
+            {
+              heading: "Use of Data",
+              body: "Your data is used strictly for order fulfillment, customs documentation, and communication regarding your collection pieces. We never sell or share your information with third parties except logistics partners required for delivery.",
+            },
+            {
+              heading: "Security",
+              body: "All communications are encrypted via HTTPS. Our systems are regularly reviewed to ensure your privacy and security are maintained at the highest standard.",
+            },
+            {
+              heading: "Your Rights",
+              body: "You may request access to, correction of, or deletion of your personal data at any time by contacting us directly. We will respond within 14 business days.",
+            },
+            {
+              heading: "Cookies",
+              body: "We use minimal cookies necessary for the website to function. We do not use third-party advertising or tracking cookies.",
+            },
+          ].map((section) => (
+            <div key={section.heading}>
+              <h2 className="text-sm font-bold uppercase tracking-widest text-black mb-3">{section.heading}</h2>
+              <p className="text-sm text-black/70 leading-relaxed">{section.body}</p>
+            </div>
+          ))}
         </div>
       </div>
     </Layout>

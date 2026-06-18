@@ -6,8 +6,8 @@ import { ContactModal } from "@/components/ContactModal";
 export default function ProductDetail() {
   const params = useParams();
   const id = Number(params.id);
-  const { data: product, isLoading } = useGetProduct(id, { 
-    query: { enabled: !!id } 
+  const { data: product, isLoading } = useGetProduct(id, {
+    query: { enabled: !!id },
   });
 
   if (isLoading) {
@@ -32,79 +32,101 @@ export default function ProductDetail() {
 
   return (
     <Layout>
-      <div className="w-full flex-1 bg-white px-6 md:px-12 py-12 md:py-24">
-        
-        {/* TOP: PRODUCT NAME */}
-        <div className="mb-12 md:mb-24">
-          <h1 className="text-2xl md:text-[2rem] text-black font-extrabold tracking-tight uppercase leading-tight break-words hyphens-auto max-w-4xl">
-            {product.name}
-          </h1>
+      <div className="px-5 md:px-10 py-10">
+
+        {/* ── HERO IMAGE ──────────────────────────────────── */}
+        <div className="relative w-full mb-3 overflow-hidden" style={{ height: "clamp(280px, 50vw, 580px)" }}>
+          <img
+            src={allImages[0]}
+            alt={product.name}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
+          <div className="absolute bottom-0 left-0 p-6 md:p-10">
+            <p className="text-xs uppercase tracking-widest text-white/60 mb-2">{product.category}</p>
+            <h1 className="text-2xl md:text-4xl font-bold text-white leading-tight max-w-xl">
+              {product.name}
+            </h1>
+            <p className="text-lg md:text-2xl font-bold text-white mt-3">
+              ${product.price.toLocaleString()}
+            </p>
+          </div>
         </div>
 
-        {/* DETAILS GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
-          
-          {/* LEFT: Metadata & Enquire */}
-          <div className="md:col-span-1 flex flex-col gap-8">
-            <div>
-              <p className="text-black font-bold tracking-tight text-[1.2rem] uppercase mb-2">
-                ${product.price.toLocaleString()}
-              </p>
-              <p className="text-black font-bold tracking-widest uppercase text-[0.7rem]">
-                {product.inStock ? "AVAILABLE FOR ACQUISITION" : "RESERVED"}
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-2">
-              {product.origin && (
-                <div className="border border-black px-2 py-1">
-                  <p className="text-[0.7rem] text-black font-bold tracking-widest uppercase">{product.origin}</p>
-                </div>
-              )}
-              {product.material && (
-                <div className="border border-black px-2 py-1">
-                  <p className="text-[0.7rem] text-black font-bold tracking-widest uppercase">{product.material}</p>
-                </div>
-              )}
-              {product.era && (
-                <div className="border border-black px-2 py-1">
-                  <p className="text-[0.7rem] text-black font-bold tracking-widest uppercase">{product.era}</p>
-                </div>
-              )}
-            </div>
-
-            {product.dimensions && (
-              <div className="pt-4 border-t border-black">
-                <p className="text-[0.7rem] text-black font-bold tracking-widest uppercase mb-1">DIMENSIONS</p>
-                <p className="text-[0.875rem] text-black uppercase">{product.dimensions}</p>
-              </div>
-            )}
-
-            <ContactModal>
-              <button className="w-full bg-black text-white font-bold text-[0.8rem] tracking-widest uppercase py-4 hover:bg-black/90 transition-colors mt-8">
-                ENQUIRE
-              </button>
-            </ContactModal>
-          </div>
-
-          {/* RIGHT: Image Grid */}
-          <div className="md:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-4">
-            {allImages.map((img, idx) => (
-              <div 
-                key={idx} 
-                className={`relative border border-black p-2 ${
-                  idx === 0 ? 'md:col-span-2 aspect-video' : 'aspect-square'
-                }`}
+        {/* ── SECONDARY IMAGES ────────────────────────────── */}
+        {allImages.length > 1 && (
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
+            {allImages.slice(1).map((img, idx) => (
+              <div
+                key={idx}
+                className="overflow-hidden"
+                style={{ height: "clamp(140px, 22vw, 260px)" }}
               >
-                <img 
-                  src={img} 
-                  alt={`${product.name} - view ${idx + 1}`} 
-                  className="w-full h-full object-cover" 
+                <img
+                  src={img}
+                  alt={`${product.name} view ${idx + 2}`}
+                  className="w-full h-full object-cover"
                 />
               </div>
             ))}
           </div>
+        )}
 
+        {/* ── DETAILS ─────────────────────────────────────── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 py-8" style={{ borderTop: "1px solid #e5e5e5" }}>
+          <div>
+            <h2 className="text-sm font-bold uppercase tracking-widest text-black mb-4">About This Piece</h2>
+            {product.description && (
+              <p className="text-sm text-black leading-relaxed mb-6">{product.description}</p>
+            )}
+            <div className="grid grid-cols-2 gap-4">
+              {product.origin && (
+                <div>
+                  <p className="text-[10px] uppercase tracking-widest text-black/50 mb-1">Origin</p>
+                  <p className="text-sm font-semibold text-black">{product.origin}</p>
+                </div>
+              )}
+              {product.material && (
+                <div>
+                  <p className="text-[10px] uppercase tracking-widest text-black/50 mb-1">Material</p>
+                  <p className="text-sm font-semibold text-black">{product.material}</p>
+                </div>
+              )}
+              {product.era && (
+                <div>
+                  <p className="text-[10px] uppercase tracking-widest text-black/50 mb-1">Era</p>
+                  <p className="text-sm font-semibold text-black">{product.era}</p>
+                </div>
+              )}
+              {product.dimensions && (
+                <div>
+                  <p className="text-[10px] uppercase tracking-widest text-black/50 mb-1">Dimensions</p>
+                  <p className="text-sm font-semibold text-black">{product.dimensions}</p>
+                </div>
+              )}
+              {product.weight && (
+                <div>
+                  <p className="text-[10px] uppercase tracking-widest text-black/50 mb-1">Weight</p>
+                  <p className="text-sm font-semibold text-black">{product.weight}</p>
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div className="flex flex-col justify-between">
+            <div>
+              <p className="text-[10px] uppercase tracking-widest text-black/50 mb-1">Price</p>
+              <p className="text-2xl font-bold text-black mb-1">${product.price.toLocaleString()}</p>
+              <p className="text-xs uppercase tracking-widest text-black/50">
+                {product.inStock ? "Available for Acquisition" : "Reserved"}
+              </p>
+            </div>
+            <ContactModal>
+              <button className="w-full bg-black text-white font-bold text-xs tracking-widest uppercase py-4 mt-8 hover:bg-black/85 transition-colors">
+                Enquire About This Piece
+              </button>
+            </ContactModal>
+          </div>
         </div>
 
       </div>

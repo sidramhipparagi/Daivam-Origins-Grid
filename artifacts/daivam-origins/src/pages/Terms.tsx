@@ -3,35 +3,40 @@ import { Layout } from "@/components/layout/Layout";
 export default function Terms() {
   return (
     <Layout>
-      <div className="max-w-5xl mx-auto w-full px-6 md:px-12 py-12 md:py-24 bg-white">
-        
-        <div className="mb-12 md:mb-24">
-          <h1 className="text-2xl md:text-3xl font-black tracking-tighter uppercase text-black">TERMS & CONDITIONS</h1>
+      <div className="max-w-3xl mx-auto w-full px-5 md:px-10 py-12">
+        <div className="mb-10">
+          <p className="text-xs uppercase tracking-widest text-black/50 font-medium mb-1">Daivam Origins</p>
+          <h1 className="text-2xl md:text-3xl font-bold text-black">Terms & Conditions</h1>
         </div>
 
-        <div className="space-y-16">
-          
-          <section className="space-y-4">
-            <h2 className="text-[1rem] font-bold tracking-widest uppercase text-black">AUTHENTICITY</h2>
-            <p className="text-[0.875rem] font-normal tracking-wide text-black leading-relaxed max-w-3xl pl-4 border-l border-black">
-              EVERY ARTIFACT AND PIECE OF CRAFTSMANSHIP IS GUARANTEED AUTHENTIC. WE SOURCE DIRECTLY FROM MASTER ARTISANS OR VERIFIED HERITAGE COLLECTIONS ACROSS INDIA.
-            </p>
-          </section>
-
-          <section className="space-y-4">
-            <h2 className="text-[1rem] font-bold tracking-widest uppercase text-black">SALES & RETURNS</h2>
-            <p className="text-[0.875rem] font-normal tracking-wide text-black leading-relaxed max-w-3xl pl-4 border-l border-black">
-              DUE TO THE NATURE OF ANTIQUITIES AND HIGH-VALUE CRAFTS, ALL SALES ARE FINAL. RETURNS ARE ONLY ACCEPTED IN CASES OF PROVEN DAMAGE DURING TRANSIT BEFORE DELIVERY.
-            </p>
-          </section>
-
-          <section className="space-y-4">
-            <h2 className="text-[1rem] font-bold tracking-widest uppercase text-black">COPYRIGHT</h2>
-            <p className="text-[0.875rem] font-normal tracking-wide text-black leading-relaxed max-w-3xl pl-4 border-l border-black">
-              ALL IMAGERY, TEXT, AND BRANDING ON THIS PLATFORM REMAIN THE EXCLUSIVE PROPERTY OF DAIVAM ORIGINS. REPRODUCTION WITHOUT EXPLICIT PERMISSION IS PROHIBITED.
-            </p>
-          </section>
-
+        <div className="space-y-10">
+          {[
+            {
+              heading: "Authenticity",
+              body: "Every artifact and piece of craftsmanship is guaranteed authentic. We source directly from master artisans and verified heritage collections across India. A certificate of authenticity accompanies each acquisition.",
+            },
+            {
+              heading: "Sales & Returns",
+              body: "Due to the nature of antiquities and high-value crafts, all sales are final. Returns are accepted only in cases of proven damage during transit documented before delivery. We will arrange a full replacement or refund in such cases.",
+            },
+            {
+              heading: "Copyright",
+              body: "All imagery, text, and branding on this platform remain the exclusive property of Daivam Origins. Reproduction without explicit written permission is prohibited.",
+            },
+            {
+              heading: "Pricing",
+              body: "All prices are listed in US Dollars and are subject to change without notice. The price confirmed at the time of enquiry is the binding price for that transaction.",
+            },
+            {
+              heading: "Governing Law",
+              body: "These terms are governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts of Tamil Nadu, India.",
+            },
+          ].map((section) => (
+            <div key={section.heading}>
+              <h2 className="text-sm font-bold uppercase tracking-widest text-black mb-3">{section.heading}</h2>
+              <p className="text-sm text-black/70 leading-relaxed">{section.body}</p>
+            </div>
+          ))}
         </div>
       </div>
     </Layout>

@@ -3,45 +3,41 @@ import { Layout } from "@/components/layout/Layout";
 export default function Shipping() {
   return (
     <Layout>
-      <div className="max-w-5xl mx-auto w-full px-6 md:px-12 py-12 md:py-24 bg-white">
-        
-        <div className="mb-12 md:mb-24">
-          <h1 className="text-2xl md:text-3xl font-black tracking-tighter uppercase text-black">SHIPPING POLICY</h1>
+      <div className="max-w-3xl mx-auto w-full px-5 md:px-10 py-12">
+        <div className="mb-10">
+          <p className="text-xs uppercase tracking-widest text-black/50 font-medium mb-1">Daivam Origins</p>
+          <h1 className="text-2xl md:text-3xl font-bold text-black">Shipping Policy</h1>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
-          <div className="space-y-4">
-            <h2 className="text-[1rem] font-bold tracking-widest uppercase text-black">Global Logistics</h2>
-            <div className="space-y-4 text-[0.875rem] font-normal tracking-wide text-black leading-relaxed pl-4 border-l border-black">
-              <p>We deliver worldwide. Every piece is treated as a museum artifact.</p>
-              <p>Standard delivery times range from 14 to 28 days depending on the destination and required customs clearances.</p>
+        <div className="space-y-10">
+          {[
+            {
+              heading: "Global Logistics",
+              body: "We deliver worldwide. Every piece is treated as a museum artifact in transit. Standard delivery ranges from 14 to 28 days depending on destination and customs clearance requirements.",
+            },
+            {
+              heading: "Packaging",
+              body: "Custom wooden crates are built for all stone and bronze sculptures. Climate-controlled packaging is used for delicate textiles and terracotta pieces. All packaging is designed to protect your acquisition for decades.",
+            },
+            {
+              heading: "Insurance",
+              body: "Every shipment is fully insured door-to-door for its exact acquisition value. In the rare event of damage in transit, we handle the claim process entirely on your behalf.",
+            },
+            {
+              heading: "Customs & Duties",
+              body: "International clients are responsible for applicable import duties and local taxes at the destination. We provide complete documentation — certificates of origin, material declarations, and valuation letters — to ensure smooth customs clearance.",
+            },
+            {
+              heading: "Tracking",
+              body: "A tracking number and dedicated logistics contact are provided for every shipment. You will receive updates at each major transit point.",
+            },
+          ].map((section) => (
+            <div key={section.heading}>
+              <h2 className="text-sm font-bold uppercase tracking-widest text-black mb-3">{section.heading}</h2>
+              <p className="text-sm text-black/70 leading-relaxed">{section.body}</p>
             </div>
-          </div>
-          
-          <div className="space-y-4">
-            <h2 className="text-[1rem] font-bold tracking-widest uppercase text-black">Packaging</h2>
-            <div className="space-y-4 text-[0.875rem] font-normal tracking-wide text-black leading-relaxed pl-4 border-l border-black">
-              <p>Custom wooden crates are built for all stone and bronze sculptures.</p>
-              <p>Climate-controlled packaging is used for delicate textiles and terracotta.</p>
-            </div>
-          </div>
-
-          <div className="space-y-4">
-            <h2 className="text-[1rem] font-bold tracking-widest uppercase text-black">Insurance</h2>
-            <div className="space-y-4 text-[0.875rem] font-normal tracking-wide text-black leading-relaxed pl-4 border-l border-black">
-              <p>Every shipment is fully insured door-to-door for its exact acquisition value.</p>
-            </div>
-          </div>
-
-          <div className="space-y-4">
-            <h2 className="text-[1rem] font-bold tracking-widest uppercase text-black">Customs & Duties</h2>
-            <div className="space-y-4 text-[0.875rem] font-normal tracking-wide text-black leading-relaxed pl-4 border-l border-black">
-              <p>International clients are responsible for import duties and local taxes.</p>
-              <p>We provide all necessary documentation for smooth customs clearance.</p>
-            </div>
-          </div>
+          ))}
         </div>
-
       </div>
     </Layout>
   );

@@ -8,41 +8,44 @@ export function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full border-b border-black bg-white">
-        <div className="flex h-16 items-center justify-between px-6 md:px-12">
-          <Link href="/" className="font-sans text-[0.85rem] font-bold tracking-widest text-black uppercase">
-            DAIVAM ORIGINS
+      <header className="sticky top-0 z-50 w-full bg-white" style={{ borderBottom: "1px solid #f0eeeb" }}>
+        <div className="flex h-14 items-center justify-between px-5 md:px-10">
+          <Link href="/" className="font-sans text-sm font-bold tracking-widest text-black uppercase">
+            Daivam Origins
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8 text-[0.75rem] font-medium tracking-widest uppercase text-black">
-            <Link href="/products" className="hover:underline underline-offset-4">Shop</Link>
-            <Link href="/editorial" className="hover:underline underline-offset-4">Editorial</Link>
+          <nav className="hidden md:flex items-center gap-10 text-xs font-medium tracking-widest uppercase text-black">
+            <Link href="/products" className="hover:opacity-50 transition-opacity">Shop</Link>
+            <Link href="/editorial" className="hover:opacity-50 transition-opacity">Editorial</Link>
             <ContactModal>
-              <button className="hover:underline underline-offset-4 uppercase">Contact</button>
+              <button className="hover:opacity-50 transition-opacity uppercase tracking-widest text-xs font-medium">Contact</button>
             </ContactModal>
           </nav>
 
-          {/* Mobile Menu Toggle */}
-          <button 
+          <button
             className="md:hidden text-black p-2 -mr-2"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle Menu"
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </header>
 
-      {/* Mobile Nav Overlay */}
       {isOpen && (
-        <div className="fixed inset-0 z-40 bg-white pt-16 flex flex-col items-center justify-center gap-8 md:hidden">
-          <nav className="flex flex-col items-center gap-8 text-xl font-bold tracking-widest uppercase text-black">
-            <Link href="/" className="hover:underline" onClick={() => setIsOpen(false)}>Home</Link>
-            <Link href="/products" className="hover:underline" onClick={() => setIsOpen(false)}>Shop</Link>
-            <Link href="/editorial" className="hover:underline" onClick={() => setIsOpen(false)}>Editorial</Link>
-            <Link href="/shipping" className="hover:underline" onClick={() => setIsOpen(false)}>Shipping</Link>
-            <Link href="/contact" className="hover:underline" onClick={() => setIsOpen(false)}>Contact</Link>
+        <div className="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center gap-8 md:hidden">
+          <button
+            className="absolute top-4 right-5 text-black"
+            onClick={() => setIsOpen(false)}
+          >
+            <X size={20} />
+          </button>
+          <nav className="flex flex-col items-center gap-7">
+            <Link href="/" className="text-xl font-bold tracking-widest uppercase text-black" onClick={() => setIsOpen(false)}>Home</Link>
+            <Link href="/products" className="text-xl font-bold tracking-widest uppercase text-black" onClick={() => setIsOpen(false)}>Shop</Link>
+            <Link href="/editorial" className="text-xl font-bold tracking-widest uppercase text-black" onClick={() => setIsOpen(false)}>Editorial</Link>
+            <Link href="/shipping" className="text-xl font-bold tracking-widest uppercase text-black" onClick={() => setIsOpen(false)}>Shipping</Link>
+            <Link href="/contact" className="text-xl font-bold tracking-widest uppercase text-black" onClick={() => setIsOpen(false)}>Contact</Link>
           </nav>
         </div>
       )}
