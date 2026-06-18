@@ -13,7 +13,7 @@ export default function ProductDetail() {
   if (isLoading) {
     return (
       <Layout>
-        <div className="min-h-screen bg-border animate-pulse p-[1px]" />
+        <div className="min-h-screen bg-white animate-pulse" />
       </Layout>
     );
   }
@@ -21,7 +21,7 @@ export default function ProductDetail() {
   if (!product) {
     return (
       <Layout>
-        <div className="min-h-screen bg-background p-16 text-center font-bold tracking-widest uppercase">
+        <div className="min-h-screen bg-white p-16 text-center font-bold tracking-widest uppercase text-black">
           Artifact not found.
         </div>
       </Layout>
@@ -32,76 +32,74 @@ export default function ProductDetail() {
 
   return (
     <Layout>
-      <div className="w-full flex-1 bg-border flex flex-col gap-[1px]">
+      <div className="w-full flex-1 bg-white px-6 md:px-12 py-12 md:py-24">
         
-        {/* TOP: GIANT PRODUCT NAME */}
-        <div className="bg-card p-4 md:p-16 flex flex-col justify-center min-h-[30vh]">
-          <h1 className="text-6xl md:text-[8rem] font-black tracking-tighter uppercase leading-[0.85] break-words hyphens-auto">
+        {/* TOP: PRODUCT NAME */}
+        <div className="mb-12 md:mb-24">
+          <h1 className="text-2xl md:text-[2rem] text-black font-extrabold tracking-tight uppercase leading-tight break-words hyphens-auto max-w-4xl">
             {product.name}
           </h1>
         </div>
 
         {/* DETAILS GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-[1px]">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
           
           {/* LEFT: Metadata & Enquire */}
-          <div className="md:col-span-1 bg-background flex flex-col gap-[1px]">
-            <div className="p-8 md:p-12 bg-card border-b border-border">
-              <p className="text-primary font-black tracking-tighter text-4xl md:text-5xl uppercase mb-2">
+          <div className="md:col-span-1 flex flex-col gap-8">
+            <div>
+              <p className="text-black font-bold tracking-tight text-[1.2rem] uppercase mb-2">
                 ${product.price.toLocaleString()}
               </p>
-              <p className="text-muted-foreground font-bold tracking-widest uppercase text-sm">
+              <p className="text-black font-bold tracking-widest uppercase text-[0.7rem]">
                 {product.inStock ? "AVAILABLE FOR ACQUISITION" : "RESERVED"}
               </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-1 gap-[1px] bg-border">
+            <div className="flex flex-wrap gap-2">
               {product.origin && (
-                <div className="bg-background p-6">
-                  <p className="text-xs text-muted-foreground font-bold tracking-widest uppercase mb-1">ORIGIN</p>
-                  <p className="font-bold uppercase tracking-wider">{product.origin}</p>
+                <div className="border border-black px-2 py-1">
+                  <p className="text-[0.7rem] text-black font-bold tracking-widest uppercase">{product.origin}</p>
                 </div>
               )}
               {product.material && (
-                <div className="bg-background p-6">
-                  <p className="text-xs text-muted-foreground font-bold tracking-widest uppercase mb-1">MATERIAL</p>
-                  <p className="font-bold uppercase tracking-wider">{product.material}</p>
+                <div className="border border-black px-2 py-1">
+                  <p className="text-[0.7rem] text-black font-bold tracking-widest uppercase">{product.material}</p>
                 </div>
               )}
               {product.era && (
-                <div className="bg-background p-6">
-                  <p className="text-xs text-muted-foreground font-bold tracking-widest uppercase mb-1">ERA</p>
-                  <p className="font-bold uppercase tracking-wider">{product.era}</p>
-                </div>
-              )}
-              {product.dimensions && (
-                <div className="bg-background p-6">
-                  <p className="text-xs text-muted-foreground font-bold tracking-widest uppercase mb-1">DIMENSIONS</p>
-                  <p className="font-bold uppercase tracking-wider">{product.dimensions}</p>
+                <div className="border border-black px-2 py-1">
+                  <p className="text-[0.7rem] text-black font-bold tracking-widest uppercase">{product.era}</p>
                 </div>
               )}
             </div>
 
+            {product.dimensions && (
+              <div className="pt-4 border-t border-black">
+                <p className="text-[0.7rem] text-black font-bold tracking-widest uppercase mb-1">DIMENSIONS</p>
+                <p className="text-[0.875rem] text-black uppercase">{product.dimensions}</p>
+              </div>
+            )}
+
             <ContactModal>
-              <button className="w-full bg-primary text-primary-foreground font-black text-2xl tracking-widest uppercase py-8 md:py-12 hover:bg-primary/90 transition-colors mt-auto">
+              <button className="w-full bg-black text-white font-bold text-[0.8rem] tracking-widest uppercase py-4 hover:bg-black/90 transition-colors mt-8">
                 ENQUIRE
               </button>
             </ContactModal>
           </div>
 
           {/* RIGHT: Image Grid */}
-          <div className="md:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-border">
+          <div className="md:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-4">
             {allImages.map((img, idx) => (
               <div 
                 key={idx} 
-                className={`relative bg-background overflow-hidden ${
-                  idx === 0 && allImages.length % 2 !== 0 ? 'md:col-span-2 aspect-video' : 'aspect-square'
+                className={`relative border border-black p-2 ${
+                  idx === 0 ? 'md:col-span-2 aspect-video' : 'aspect-square'
                 }`}
               >
                 <img 
                   src={img} 
                   alt={`${product.name} - view ${idx + 1}`} 
-                  className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" 
+                  className="w-full h-full object-cover" 
                 />
               </div>
             ))}

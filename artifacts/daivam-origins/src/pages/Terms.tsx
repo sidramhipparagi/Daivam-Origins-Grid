@@ -3,31 +3,31 @@ import { Layout } from "@/components/layout/Layout";
 export default function Terms() {
   return (
     <Layout>
-      <div className="max-w-5xl mx-auto w-full p-4 md:p-8">
+      <div className="max-w-5xl mx-auto w-full px-6 md:px-12 py-12 md:py-24 bg-white">
         
-        <div className="bg-card border border-border p-8 md:p-16 mb-1">
-          <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase">TERMS &<br/>CONDITIONS</h1>
+        <div className="mb-12 md:mb-24">
+          <h1 className="text-2xl md:text-3xl font-black tracking-tighter uppercase text-black">TERMS & CONDITIONS</h1>
         </div>
 
-        <div className="bg-background p-8 md:p-12 border border-border space-y-12">
+        <div className="space-y-16">
           
-          <section>
-            <h2 className="text-xl font-bold tracking-widest uppercase mb-4 text-primary">AUTHENTICITY</h2>
-            <p className="text-sm font-semibold tracking-wider uppercase text-muted-foreground leading-relaxed max-w-3xl">
+          <section className="space-y-4">
+            <h2 className="text-[1rem] font-bold tracking-widest uppercase text-black">AUTHENTICITY</h2>
+            <p className="text-[0.875rem] font-normal tracking-wide text-black leading-relaxed max-w-3xl pl-4 border-l border-black">
               EVERY ARTIFACT AND PIECE OF CRAFTSMANSHIP IS GUARANTEED AUTHENTIC. WE SOURCE DIRECTLY FROM MASTER ARTISANS OR VERIFIED HERITAGE COLLECTIONS ACROSS INDIA.
             </p>
           </section>
 
-          <section>
-            <h2 className="text-xl font-bold tracking-widest uppercase mb-4 text-primary">SALES & RETURNS</h2>
-            <p className="text-sm font-semibold tracking-wider uppercase text-muted-foreground leading-relaxed max-w-3xl">
+          <section className="space-y-4">
+            <h2 className="text-[1rem] font-bold tracking-widest uppercase text-black">SALES & RETURNS</h2>
+            <p className="text-[0.875rem] font-normal tracking-wide text-black leading-relaxed max-w-3xl pl-4 border-l border-black">
               DUE TO THE NATURE OF ANTIQUITIES AND HIGH-VALUE CRAFTS, ALL SALES ARE FINAL. RETURNS ARE ONLY ACCEPTED IN CASES OF PROVEN DAMAGE DURING TRANSIT BEFORE DELIVERY.
             </p>
           </section>
 
-          <section>
-            <h2 className="text-xl font-bold tracking-widest uppercase mb-4 text-primary">COPYRIGHT</h2>
-            <p className="text-sm font-semibold tracking-wider uppercase text-muted-foreground leading-relaxed max-w-3xl">
+          <section className="space-y-4">
+            <h2 className="text-[1rem] font-bold tracking-widest uppercase text-black">COPYRIGHT</h2>
+            <p className="text-[0.875rem] font-normal tracking-wide text-black leading-relaxed max-w-3xl pl-4 border-l border-black">
               ALL IMAGERY, TEXT, AND BRANDING ON THIS PLATFORM REMAIN THE EXCLUSIVE PROPERTY OF DAIVAM ORIGINS. REPRODUCTION WITHOUT EXPLICIT PERMISSION IS PROHIBITED.
             </p>
           </section>

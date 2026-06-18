@@ -8,24 +8,24 @@ export function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
-        <div className="flex h-16 items-center justify-between px-4 md:px-8">
-          <Link href="/" className="font-sans text-xl md:text-2xl font-black tracking-tighter hover:text-primary transition-colors">
+      <header className="sticky top-0 z-50 w-full border-b border-black bg-white">
+        <div className="flex h-16 items-center justify-between px-6 md:px-12">
+          <Link href="/" className="font-sans text-[0.85rem] font-bold tracking-widest text-black uppercase">
             DAIVAM ORIGINS
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8 text-sm font-bold tracking-widest uppercase">
-            <Link href="/products" className="hover:text-primary transition-colors">Shop</Link>
-            <Link href="/editorial" className="hover:text-primary transition-colors">Editorial</Link>
+          <nav className="hidden md:flex items-center gap-8 text-[0.75rem] font-medium tracking-widest uppercase text-black">
+            <Link href="/products" className="hover:underline underline-offset-4">Shop</Link>
+            <Link href="/editorial" className="hover:underline underline-offset-4">Editorial</Link>
             <ContactModal>
-              <button className="hover:text-primary transition-colors uppercase font-bold tracking-widest">Contact</button>
+              <button className="hover:underline underline-offset-4 uppercase">Contact</button>
             </ContactModal>
           </nav>
 
           {/* Mobile Menu Toggle */}
           <button 
-            className="md:hidden p-2 -mr-2"
+            className="md:hidden text-black p-2 -mr-2"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle Menu"
           >
@@ -36,13 +36,13 @@ export function Header() {
 
       {/* Mobile Nav Overlay */}
       {isOpen && (
-        <div className="fixed inset-0 z-40 bg-background pt-16 flex flex-col items-center justify-center gap-8 md:hidden">
-          <nav className="flex flex-col items-center gap-8 text-3xl font-black tracking-tighter uppercase">
-            <Link href="/" className="hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Home</Link>
-            <Link href="/products" className="hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Shop</Link>
-            <Link href="/editorial" className="hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Editorial</Link>
-            <Link href="/shipping" className="hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Shipping</Link>
-            <Link href="/contact" className="hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Contact</Link>
+        <div className="fixed inset-0 z-40 bg-white pt-16 flex flex-col items-center justify-center gap-8 md:hidden">
+          <nav className="flex flex-col items-center gap-8 text-xl font-bold tracking-widest uppercase text-black">
+            <Link href="/" className="hover:underline" onClick={() => setIsOpen(false)}>Home</Link>
+            <Link href="/products" className="hover:underline" onClick={() => setIsOpen(false)}>Shop</Link>
+            <Link href="/editorial" className="hover:underline" onClick={() => setIsOpen(false)}>Editorial</Link>
+            <Link href="/shipping" className="hover:underline" onClick={() => setIsOpen(false)}>Shipping</Link>
+            <Link href="/contact" className="hover:underline" onClick={() => setIsOpen(false)}>Contact</Link>
           </nav>
         </div>
       )}
