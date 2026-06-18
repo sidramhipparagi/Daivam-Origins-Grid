@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Menu, X } from "lucide-react";
+import { Search, X } from "lucide-react";
 import { useState } from "react";
 import { ContactModal } from "@/components/ContactModal";
 
@@ -14,6 +14,7 @@ export function Header() {
             Daivam Origins
           </Link>
 
+          {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-10 text-xs font-medium tracking-widest uppercase text-black">
             <Link href="/products" className="hover:opacity-50 transition-opacity">Shop</Link>
             <Link href="/editorial" className="hover:opacity-50 transition-opacity">Editorial</Link>
@@ -22,31 +23,55 @@ export function Header() {
             </ContactModal>
           </nav>
 
+          {/* Mobile — search icon triggers nav overlay */}
           <button
-            className="md:hidden text-black p-2 -mr-2"
+            className="md:hidden text-black p-1"
             onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle Menu"
+            aria-label="Menu"
           >
-            {isOpen ? <X size={20} /> : <Menu size={20} />}
+            {isOpen ? <X size={18} strokeWidth={1.5} /> : <Search size={18} strokeWidth={1.5} />}
           </button>
         </div>
       </header>
 
+      {/* Mobile nav overlay */}
       {isOpen && (
-        <div className="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center gap-8 md:hidden">
-          <button
-            className="absolute top-4 right-5 text-black"
-            onClick={() => setIsOpen(false)}
-          >
-            <X size={20} />
-          </button>
-          <nav className="flex flex-col items-center gap-7">
-            <Link href="/" className="text-xl font-bold tracking-widest uppercase text-black" onClick={() => setIsOpen(false)}>Home</Link>
-            <Link href="/products" className="text-xl font-bold tracking-widest uppercase text-black" onClick={() => setIsOpen(false)}>Shop</Link>
-            <Link href="/editorial" className="text-xl font-bold tracking-widest uppercase text-black" onClick={() => setIsOpen(false)}>Editorial</Link>
-            <Link href="/shipping" className="text-xl font-bold tracking-widest uppercase text-black" onClick={() => setIsOpen(false)}>Shipping</Link>
-            <Link href="/contact" className="text-xl font-bold tracking-widest uppercase text-black" onClick={() => setIsOpen(false)}>Contact</Link>
+        <div className="fixed inset-0 z-40 bg-white flex flex-col md:hidden">
+          {/* Top bar mirrors header */}
+          <div className="flex h-14 items-center justify-between px-5" style={{ borderBottom: "1px solid #f0eeeb" }}>
+            <Link href="/" className="text-sm font-bold tracking-widest text-black uppercase" onClick={() => setIsOpen(false)}>
+              Daivam Origins
+            </Link>
+            <button className="text-black p-1" onClick={() => setIsOpen(false)}>
+              <X size={18} strokeWidth={1.5} />
+            </button>
+          </div>
+
+          {/* Nav links — left-aligned, generous spacing */}
+          <nav className="flex flex-col px-5 pt-10 gap-1">
+            {[
+              { href: "/", label: "Home" },
+              { href: "/products", label: "Shop" },
+              { href: "/editorial", label: "Editorial" },
+              { href: "/shipping", label: "Shipping" },
+              { href: "/contact", label: "Contact" },
+            ].map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
+                className="py-4 text-2xl font-bold tracking-tight text-black hover:opacity-40 transition-opacity"
+                style={{ borderBottom: "1px solid #f5f5f5" }}
+                onClick={() => setIsOpen(false)}
+              >
+                {label}
+              </Link>
+            ))}
           </nav>
+
+          {/* Bottom tagline */}
+          <p className="mt-auto px-5 pb-8 text-xs uppercase tracking-widest text-black/30 font-medium">
+            Ancient Crafts · World Destinations
+          </p>
         </div>
       )}
     </>

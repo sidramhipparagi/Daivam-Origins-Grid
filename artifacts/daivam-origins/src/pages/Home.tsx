@@ -40,39 +40,51 @@ export default function Home() {
 
       {/* ── HERO ─────────────────────────────────────────────── */}
       <section className="px-5 md:px-10 pt-8 pb-12">
-        {/* Tagline */}
-        <p className="text-xs uppercase tracking-widest text-black mb-5 font-medium">
-          Ancient Crafts · World Destinations
-        </p>
+        <div className="grid gap-3" style={{ gridTemplateColumns: "repeat(2, 1fr)" }}>
 
-        {/*
-          Mobile:  2-col grid, row 1 = first tile full width, rows 2+ = 1+1
-          Desktop: 3-col grid, first tile spans 2 cols (tall), rest 1 col
-        */}
-        <div
-          className="grid gap-3"
-          style={{
-            gridTemplateColumns: "repeat(2, 1fr)",
-            gridTemplateRows: "auto",
-          }}
-        >
-          {/* Large feature tile */}
+          {/* Large feature tile — modern mixed-weight heading */}
           <Link
             href={heroItems[0].href}
-            className="col-span-2 md:col-span-2 relative block overflow-hidden group"
-            style={{ height: "clamp(240px, 45vw, 520px)" }}
+            className="col-span-2 relative block overflow-hidden group"
+            style={{ height: "clamp(300px, 52vw, 600px)" }}
           >
             <img
               src={heroItems[0].image}
               alt={heroItems[0].label}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-            <div className="absolute bottom-0 left-0 p-5 md:p-8">
-              <p className="text-xs uppercase tracking-widest text-white/70 mb-1 font-medium">Explore</p>
-              <h2 className="text-2xl md:text-4xl font-bold text-white leading-tight">
-                {heroItems[0].label}
+            {/* Subtle dark vignette at bottom */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+
+            {/* Top-left index label */}
+            <div className="absolute top-5 left-5 md:top-7 md:left-8">
+              <p className="text-[9px] uppercase tracking-[0.25em] text-white/50 font-medium">
+                001 — Daivam Origins
+              </p>
+            </div>
+
+            {/* Bottom heading — mixed weight typographic treatment */}
+            <div className="absolute bottom-0 left-0 p-5 md:p-9">
+              <h2 className="leading-none tracking-tight text-white" style={{ lineHeight: 0.88 }}>
+                <span
+                  className="block text-white"
+                  style={{ fontSize: "clamp(2.4rem, 7.5vw, 5.5rem)", fontWeight: 200, letterSpacing: "-0.02em" }}
+                >
+                  Ancient
+                </span>
+                <span
+                  className="block text-white"
+                  style={{ fontSize: "clamp(2.4rem, 7.5vw, 5.5rem)", fontWeight: 900, letterSpacing: "-0.03em" }}
+                >
+                  Crafts
+                </span>
               </h2>
+              <div className="flex items-center gap-3 mt-4">
+                <div className="h-px w-6 bg-white/40" />
+                <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 font-medium">
+                  World Destinations
+                </p>
+              </div>
             </div>
           </Link>
 
@@ -82,16 +94,19 @@ export default function Home() {
               key={item.href}
               href={item.href}
               className="col-span-1 relative block overflow-hidden group"
-              style={{ height: "clamp(180px, 30vw, 340px)" }}
+              style={{ height: "clamp(160px, 28vw, 320px)" }}
             >
               <img
                 src={item.image}
                 alt={item.label}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
-              <div className="absolute bottom-0 left-0 p-4 md:p-6">
-                <h3 className="text-base md:text-xl font-bold text-white leading-tight">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/5 to-transparent" />
+              <div className="absolute bottom-0 left-0 p-4 md:p-5">
+                <h3
+                  className="text-white font-bold leading-tight"
+                  style={{ fontSize: "clamp(0.85rem, 2.2vw, 1.15rem)", fontWeight: 700 }}
+                >
                   {item.label}
                 </h3>
               </div>
@@ -109,19 +124,19 @@ export default function Home() {
           </Link>
         </div>
 
-        {/* 2-col mobile · 4-col desktop — uniform tiles, text overlaid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        {/* 1-col mobile (landscape) · 4-col desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
           {featuredProducts?.map((product, i) => (
             <Link
               key={product.id}
               href={`/products/${product.id}`}
               className={`relative block overflow-hidden group ${
-                i === 0 ? "col-span-2 md:col-span-2" : "col-span-1"
+                i === 0 ? "md:col-span-2" : "md:col-span-1"
               }`}
               style={{
                 height: i === 0
-                  ? "clamp(220px, 40vw, 460px)"
-                  : "clamp(180px, 28vw, 320px)",
+                  ? "clamp(210px, 55vw, 460px)"
+                  : "clamp(190px, 50vw, 320px)",
               }}
             >
               <img
@@ -150,13 +165,14 @@ export default function Home() {
           <p className="text-xs uppercase tracking-widest text-black font-medium">The Collection</p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+        {/* 1-col mobile (landscape) · 3-col desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           {allProducts?.map((product) => (
             <Link
               key={product.id}
               href={`/products/${product.id}`}
               className="relative block overflow-hidden group"
-              style={{ height: "clamp(200px, 32vw, 380px)" }}
+              style={{ height: "clamp(190px, 50vw, 380px)" }}
             >
               <img
                 src={product.imageUrl}
