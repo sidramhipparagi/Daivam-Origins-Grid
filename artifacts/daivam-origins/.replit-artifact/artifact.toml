@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Daivam Origins"
+version = "1.0.0"
+id = "artifacts/daivam-origins"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18484
+
+[services.development]
+run = "pnpm --filter @workspace/daivam-origins run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/daivam-origins", "run", "build" ]
+publicDir = "artifacts/daivam-origins/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18484"
+BASE_PATH = "/"

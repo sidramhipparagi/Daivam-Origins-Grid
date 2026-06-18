@@ -1,0 +1,62 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "OIiPwfqFFNs7ZrVrSoLpE"
+uri = "file://artifacts/daivam-origins/public/images/hero-main.png"
+type = "image"
+title = "ancient bronze indian sculpture"
+
+[[generated]]
+id = "uYckLpLqtwy98wUkJ3vLK"
+uri = "file://artifacts/daivam-origins/public/images/hero-stone.png"
+type = "image"
+title = "ancient stone indian carving"
+
+[[generated]]
+id = "sKstd4CDiqxIKINjxL904"
+uri = "file://artifacts/daivam-origins/public/images/hero-terracotta.png"
+type = "image"
+title = "ancient terracotta indian art"
+
+[[generated]]
+id = "7xSrHfd7u7WRp5fwJoD9Q"
+uri = "file://artifacts/daivam-origins/public/images/hero-gold.png"
+type = "image"
+title = "ancient gold indian artifact"
+
+[[generated]]
+id = "WDFl_dfWRj_sthudJuua7"
+uri = "file://artifacts/daivam-origins/public/images/cat-brass.png"
+type = "image"
+title = "ancient brass indian idol"
+
+[[generated]]
+id = "FfG_v9mtJWFjvasJP71bm"
+uri = "file://artifacts/daivam-origins/public/images/cat-bronze.png"
+type = "image"
+title = "ancient bronze indian sculpture"
+
+[[generated]]
+id = "G0sLo6b6hU4FzDBkBYMwU"
+uri = "file://artifacts/daivam-origins/public/images/cat-terracotta.png"
+type = "image"
+title = "ancient terracotta indian art"
+
+[[generated]]
+id = "PSbN7DW65IQtS_Zqvg7fM"
+uri = "file://artifacts/daivam-origins/public/images/cat-stone.png"
+type = "image"
+title = "ancient stone indian carving"
+
+[[generated]]
+id = "Zr2yUXff0bz24id9RVjEN"
+uri = "file://artifacts/daivam-origins/public/images/cat-silk.png"
+type = "image"
+title = "ancient indian silk textile"
+
+[[generated]]
+id = "m23ygmikC00U2lZTg1S9G"
+uri = "file://artifacts/daivam-origins/public/images/cat-wood.png"
+type = "image"
+title = "ancient carved wooden artifact"
