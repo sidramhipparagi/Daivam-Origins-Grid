@@ -1,6 +1,7 @@
 import { Switch, Route, Router as WouterRouter } from "wouter";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { ScrollRestoration } from "@/components/ScrollRestoration";
 import NotFound from "@/pages/not-found";
 
 import Home from "@/pages/Home";
@@ -36,6 +37,7 @@ function App() {
   return (
     <TooltipProvider>
       <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+        <ScrollRestoration />
         <Router />
       </WouterRouter>
       <Toaster />
