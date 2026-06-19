@@ -28,6 +28,7 @@ export function Footer() {
             <li><Link href="/shipping" className="text-xs text-black/60 hover:text-black transition-colors uppercase tracking-widest">Shipping</Link></li>
             <li><Link href="/terms" className="text-xs text-black/60 hover:text-black transition-colors uppercase tracking-widest">Terms</Link></li>
             <li><Link href="/privacy" className="text-xs text-black/60 hover:text-black transition-colors uppercase tracking-widest">Privacy</Link></li>
+            <li><Link href="/return" className="text-xs text-black/60 hover:text-black transition-colors uppercase tracking-widest">Return & Refund</Link></li>
           </ul>
         </div>
 
@@ -46,10 +47,10 @@ export function Footer() {
 
       <div className="pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-3" style={{ borderTop: "1px solid #f0eeeb" }}>
         <p className="text-[10px] text-black/40 uppercase tracking-widest">
-          © {new Date().getFullYear()} Daivam Origins. All rights reserved.
+          © {new Date().getFullYear()} Daivam Origins.
         </p>
         <p className="text-[10px] text-black/40 uppercase tracking-widest">
-          Ancient Crafts · World Destinations
+          Touch the Origin
         </p>
       </div>
     </footer>

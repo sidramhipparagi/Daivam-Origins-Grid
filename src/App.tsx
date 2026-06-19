@@ -10,6 +10,7 @@ import CategoryProducts from "@/pages/CategoryProducts";
 import Editorial from "@/pages/Editorial";
 import Shipping from "@/pages/Shipping";
 import Privacy from "@/pages/Privacy";
+import ReturnPolicy from "@/pages/ReturnPolicy";
 import Terms from "@/pages/Terms";
 import Contact from "@/pages/Contact";
 
@@ -23,6 +24,7 @@ function Router() {
       <Route path="/editorial" component={Editorial} />
       <Route path="/shipping" component={Shipping} />
       <Route path="/privacy" component={Privacy} />
+      <Route path="/return" component={ReturnPolicy} />
       <Route path="/terms" component={Terms} />
       <Route path="/contact" component={Contact} />
       <Route component={NotFound} />

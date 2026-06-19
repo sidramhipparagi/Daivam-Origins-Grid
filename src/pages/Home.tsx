@@ -1,6 +1,10 @@
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "wouter";
-import { products, featuredProducts, categories, articles } from "@/data";
+import { products, featuredProducts, articles } from "@/data";
+
+const NATARAJA_PRODUCT_URL = "/products/1";
+const NATARAJA_MEDIUM_URL =
+  "https://medium.com/@daivamorigins/nataraja-the-cosmic-dance-of-shiva-8f162f5b8c66";
 
 const TESTIMONIALS = [
   {
@@ -20,67 +24,94 @@ const TESTIMONIALS = [
   },
 ];
 
-const heroItems = [
-  { href: "/products", image: "https://images.unsplash.com/photo-1578321272125-4dc13b6c7b5c?w=1200&q=80", label: "The Collection" },
-  { href: "/categories/Stone Carvings", image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&q=80", label: "Stone Carvings" },
-  { href: "/categories/Terracotta Art", image: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&q=80", label: "Terracotta" },
-  { href: "/categories/Bronze Sculptures", image: "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=800&q=80", label: "Bronze" },
-];
-
 export default function Home() {
   return (
     <Layout>
 
       {/* ── HERO ─────────────────────────────────────────────── */}
-      <section className="px-5 md:px-10 pt-8 pb-12">
-        <div className="grid gap-3" style={{ gridTemplateColumns: "repeat(2, 1fr)" }}>
+        <section className="px-5 md:px-10 pt-8 pb-12">
+          <div className="grid gap-3" style={{ gridTemplateColumns: "repeat(2, 1fr)" }}>
 
-          {/* Large feature tile */}
-          <Link
-            href={heroItems[0].href}
-            className="col-span-2 relative block overflow-hidden group"
-            style={{ height: "clamp(300px, 52vw, 600px)" }}
-          >
-            <img
-              src={heroItems[0].image}
-              alt={heroItems[0].label}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
-            <div className="absolute top-5 left-5 md:top-7 md:left-8">
-              <p className="text-[9px] uppercase tracking-[0.25em] text-white/50 font-medium">001 — Daivam Origins</p>
-            </div>
-            <div className="absolute bottom-0 left-0 p-5 md:p-9">
-              <h2 className="leading-none tracking-tight text-white" style={{ lineHeight: 0.88 }}>
-                <span className="block text-white" style={{ fontSize: "clamp(2.4rem, 7.5vw, 5.5rem)", fontWeight: 200, letterSpacing: "-0.02em" }}>Ancient</span>
-                <span className="block text-white" style={{ fontSize: "clamp(2.4rem, 7.5vw, 5.5rem)", fontWeight: 900, letterSpacing: "-0.03em" }}>Crafts</span>
-              </h2>
-              <div className="flex items-center gap-3 mt-4">
-                <div className="h-px w-6 bg-white/40" />
-                <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 font-medium">World Destinations</p>
-              </div>
-            </div>
-          </Link>
-
-          {/* Smaller tiles */}
-          {heroItems.slice(1).map((item) => (
+            {/* public/images/img1.png — Home hero → Nataraja product */}
             <Link
-              key={item.href}
-              href={item.href}
+              href={NATARAJA_PRODUCT_URL}
+              className="col-span-2 relative block overflow-hidden group"
+              style={{ height: "clamp(300px, 52vw, 600px)" }}
+            >
+              <img
+                src="/images/img1.jpg"
+                alt="Ancient Crafts"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+              <div className="absolute top-5 left-5 md:top-7 md:left-8">
+                <p className="text-[9px] uppercase tracking-[0.25em] text-white/50 font-medium">Daivam Origins</p>
+              </div>
+              <div className="absolute bottom-0 left-0 p-5 md:p-9">
+                <h2 className="leading-none tracking-tight text-white" style={{ lineHeight: 0.88 }}>
+                  <span className="block text-white" style={{ fontSize: "clamp(2.4rem, 7.5vw, 5.5rem)", fontWeight: 200, letterSpacing: "-0.02em" }}>Ancient</span>
+                  <span className="block text-white" style={{ fontSize: "clamp(2.4rem, 7.5vw, 5.5rem)", fontWeight: 700, letterSpacing: "-0.03em" }}>Heritage & Craft</span>
+                </h2>
+                <div className="flex items-center gap-3 mt-4">
+                  <div className="h-px w-6 bg-white/40" />
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-white/60 font-medium">Touch the Origin</p>
+                </div>
+              </div>
+            </Link>
+
+            {/* public/images/img2.png — South Indian Bronzes → Nataraja Medium article */}
+            <a
+              href={NATARAJA_MEDIUM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="col-span-1 relative block overflow-hidden group"
               style={{ height: "clamp(160px, 28vw, 320px)" }}
             >
-              <img src={item.image} alt={item.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
+              <img src="/images/img2.png" alt="South Indian Bronzes" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/5 to-transparent" />
               <div className="absolute bottom-0 left-0 p-4 md:p-5">
                 <h3 className="text-white font-bold leading-tight" style={{ fontSize: "clamp(0.85rem, 2.2vw, 1.15rem)", fontWeight: 700 }}>
-                  {item.label}
+                  South Indian Bronzes
                 </h3>
               </div>
-            </Link>
-          ))}
-        </div>
-      </section>
+            </a>
+
+            {/* public/images/img3.png — Temple Traditions → Nataraja Medium article */}
+            <a
+              href={NATARAJA_MEDIUM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="col-span-1 relative block overflow-hidden group"
+              style={{ height: "clamp(160px, 28vw, 320px)" }}
+            >
+              <img src="/images/img3.png" alt="Temple Traditions" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/5 to-transparent" />
+              <div className="absolute bottom-0 left-0 p-4 md:p-5">
+                <h3 className="text-white font-bold leading-tight" style={{ fontSize: "clamp(0.85rem, 2.2vw, 1.15rem)", fontWeight: 700 }}>
+                  Temple Traditions
+                </h3>
+              </div>
+            </a>
+
+            {/* public/images/img4.png — Sacred Interiors → Nataraja Medium article */}
+            <a
+              href={NATARAJA_MEDIUM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="col-span-1 relative block overflow-hidden group"
+              style={{ height: "clamp(160px, 28vw, 320px)" }}
+            >
+              <img src="/images/img4.png" alt="Sacred Interiors" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/5 to-transparent" />
+              <div className="absolute bottom-0 left-0 p-4 md:p-5">
+                <h3 className="text-white font-bold leading-tight" style={{ fontSize: "clamp(0.85rem, 2.2vw, 1.15rem)", fontWeight: 700 }}>
+                  Sacred Interiors
+                </h3>
+              </div>
+            </a>
+
+          </div>
+        </section>
 
       {/* ── FEATURED PRODUCTS ────────────────────────────────── */}
       <section className="px-5 md:px-10 pb-12">
@@ -108,8 +139,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── ALL PRODUCTS ─────────────────────────────────────── */}
-      <section className="px-5 md:px-10 pb-12">
+      {/* ── ALL PRODUCTS (hidden — restore by removing `hidden`) ── */}
+      <section className="hidden px-5 md:px-10 pb-12">
         <div className="flex items-baseline justify-between mb-5">
           <p className="text-xs uppercase tracking-widest text-black font-medium">The Collection</p>
         </div>
@@ -157,14 +188,14 @@ export default function Home() {
           <Link href="/editorial" className="text-xs uppercase tracking-widest text-black underline underline-offset-4">All Articles</Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          {articles.slice(0, 3).map((article, i) => (
+          {articles.slice(0, 3).map((article) => (
             <a
               key={article.id}
               href={article.mediumUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={`relative block overflow-hidden group ${i === 0 ? "md:col-span-2" : "col-span-1"}`}
-              style={{ height: i === 0 ? "clamp(240px, 38vw, 440px)" : "clamp(200px, 28vw, 320px)" }}
+              className="relative block overflow-hidden group"
+              style={{ height: "clamp(200px, 28vw, 360px)" }}
             >
               <img src={article.imageUrl} alt={article.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />

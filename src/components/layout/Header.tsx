@@ -11,7 +11,8 @@ export function Header() {
       <header className="sticky top-0 z-50 w-full bg-white" style={{ borderBottom: "1px solid #f0eeeb" }}>
         <div className="flex h-14 items-center justify-between px-5 md:px-10">
           <Link href="/" className="flex items-center">
-            <img src="/logo-C-black.png" alt="Daivam Origins" className="h-6 w-auto object-contain" />
+            {/* public/images/logo.png — Header logo */}
+            <img src="/images/logo.png" alt="Daivam Origins" className="h-6 w-auto object-contain" />
           </Link>
 
           {/* Desktop Nav */}
@@ -40,7 +41,8 @@ export function Header() {
           {/* Top bar mirrors header */}
           <div className="flex h-14 items-center justify-between px-5" style={{ borderBottom: "1px solid #f0eeeb" }}>
             <Link href="/" className="flex items-center" onClick={() => setIsOpen(false)}>
-              <img src="/logo-C-black.png" alt="Daivam Origins" className="h-6 w-auto object-contain" />
+              {/* public/images/logo.png — Header logo */}
+              <img src="/images/logo.png" alt="Daivam Origins" className="h-6 w-auto object-contain" />
             </Link>
             <button className="text-black p-1" onClick={() => setIsOpen(false)}>
               <X size={18} strokeWidth={1.5} />

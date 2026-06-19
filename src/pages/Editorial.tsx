@@ -10,15 +10,15 @@ export default function Editorial() {
           <h1 className="text-2xl md:text-3xl font-bold text-black">Editorial</h1>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          {articles.map((article, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          {articles.map((article) => (
             <a
               key={article.id}
               href={article.mediumUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={`relative block overflow-hidden group ${i === 0 ? "md:col-span-2" : "col-span-1"}`}
-              style={{ height: i === 0 ? "clamp(280px, 40vw, 520px)" : "clamp(240px, 28vw, 380px)" }}
+              className="relative block overflow-hidden group"
+              style={{ height: "clamp(240px, 28vw, 380px)" }}
             >
               <img src={article.imageUrl} alt={article.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />

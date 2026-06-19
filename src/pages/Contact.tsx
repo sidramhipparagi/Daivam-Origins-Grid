@@ -40,10 +40,10 @@ export default function Contact() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-start">
 
-          {/* Image */}
+          {/* public/images/img21.png — Contact hero */}
           <div className="relative overflow-hidden" style={{ height: "clamp(280px, 45vw, 520px)" }}>
             <img
-              src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=900&q=80"
+              src="/images/img21.png"
               alt="Ancient stone carving"
               className="w-full h-full object-cover"
             />
