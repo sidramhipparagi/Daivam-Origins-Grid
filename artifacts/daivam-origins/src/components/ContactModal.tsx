@@ -1,6 +1,7 @@
 import {
   Dialog,
   DialogContent,
+  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { ReactNode } from "react";
@@ -40,7 +41,7 @@ export function ContactModal({ children }: { children: ReactNode }) {
       <DialogContent className="max-w-sm bg-white rounded-none p-0 gap-0 border-0 shadow-2xl">
         <div className="p-8">
           <p className="text-[10px] uppercase tracking-[0.25em] text-black/40 font-medium mb-1">Daivam Origins</p>
-          <h2 className="text-xl font-bold text-black mb-8">Get in Touch</h2>
+          <DialogTitle className="text-xl font-bold text-black mb-8">Get in Touch</DialogTitle>
 
           <div className="flex flex-col gap-5">
             {CONTACT_ITEMS.map(({ Icon, label, value, href, iconColor }) => (
