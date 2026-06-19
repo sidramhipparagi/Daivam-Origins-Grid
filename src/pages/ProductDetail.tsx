@@ -4,6 +4,7 @@ import { useParams } from "wouter";
 import { ContactModal } from "@/components/ContactModal";
 import { products } from "@/data";
 import { X, ZoomIn } from "lucide-react";
+import { getAssetUrl } from "@/lib/utils";
 
 export default function ProductDetail() {
   const params = useParams();
@@ -21,7 +22,9 @@ export default function ProductDetail() {
     );
   }
 
-  const allImages = [product.imageUrl, ...(product.images || [])].filter(Boolean);
+  const allImages = [product.imageUrl, ...(product.images || [])]
+    .filter(Boolean)
+    .map(getAssetUrl);
 
   return (
     <Layout>

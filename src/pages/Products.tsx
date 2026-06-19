@@ -1,6 +1,7 @@
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "wouter";
 import { products } from "@/data";
+import { getAssetUrl } from "@/lib/utils";
 
 export default function Products() {
   return (
@@ -18,7 +19,7 @@ export default function Products() {
               className={`relative block overflow-hidden group ${i === 0 ? "md:col-span-2" : "col-span-1"}`}
               style={{ height: i === 0 ? "clamp(240px, 42vw, 480px)" : "clamp(200px, 28vw, 340px)" }}
             >
-              <img src={product.imageUrl} alt={product.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
+              <img src={getAssetUrl(product.imageUrl)} alt={product.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent" />
               <div className="absolute bottom-0 left-0 p-4 md:p-5">
                 <p className="text-[10px] uppercase tracking-widest text-white/65 mb-0.5">{product.category}</p>
