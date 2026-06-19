@@ -1,11 +1,11 @@
 import { Layout } from "@/components/layout/Layout";
-import { useListProducts } from "@workspace/api-client-react";
 import { Link, useParams } from "wouter";
+import { products } from "@/data";
 
 export default function CategoryProducts() {
   const params = useParams();
   const categoryName = params.name ? decodeURIComponent(params.name) : "";
-  const { data: products, isLoading } = useListProducts({ category: categoryName });
+  const filtered = products.filter((p) => p.category === categoryName);
 
   return (
     <Layout>
@@ -15,36 +15,20 @@ export default function CategoryProducts() {
           <h1 className="text-2xl md:text-3xl font-bold text-black">{categoryName}</h1>
         </div>
 
-        {isLoading ? (
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="bg-gray-100 animate-pulse" style={{ height: "clamp(200px,30vw,340px)" }} />
-            ))}
-          </div>
-        ) : products?.length === 0 ? (
+        {filtered.length === 0 ? (
           <div className="py-20">
             <p className="text-sm text-black/50 uppercase tracking-widest">No pieces currently available in this collection.</p>
           </div>
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-            {products?.map((product, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {filtered.map((product, i) => (
               <Link
                 key={product.id}
                 href={`/products/${product.id}`}
-                className={`relative block overflow-hidden group ${
-                  i === 0 ? "col-span-2 md:col-span-2" : "col-span-1"
-                }`}
-                style={{
-                  height: i === 0
-                    ? "clamp(240px, 42vw, 480px)"
-                    : "clamp(200px, 28vw, 340px)",
-                }}
+                className={`relative block overflow-hidden group ${i === 0 ? "md:col-span-2" : "col-span-1"}`}
+                style={{ height: i === 0 ? "clamp(240px, 42vw, 480px)" : "clamp(200px, 28vw, 340px)" }}
               >
-                <img
-                  src={product.imageUrl}
-                  alt={product.name}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-                />
+                <img src={product.imageUrl} alt={product.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent" />
                 <div className="absolute bottom-0 left-0 p-4 md:p-5">
                   <p className="text-[10px] uppercase tracking-widest text-white/60 mb-0.5">{product.origin}</p>

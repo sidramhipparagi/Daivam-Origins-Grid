@@ -1,22 +1,12 @@
 import { Layout } from "@/components/layout/Layout";
-import { useGetProduct } from "@workspace/api-client-react";
 import { useParams } from "wouter";
 import { ContactModal } from "@/components/ContactModal";
+import { products } from "@/data";
 
 export default function ProductDetail() {
   const params = useParams();
   const id = Number(params.id);
-  const { data: product, isLoading } = useGetProduct(id, {
-    query: { enabled: !!id },
-  });
-
-  if (isLoading) {
-    return (
-      <Layout>
-        <div className="min-h-screen bg-white animate-pulse" />
-      </Layout>
-    );
-  }
+  const product = products.find((p) => p.id === id);
 
   if (!product) {
     return (
@@ -34,45 +24,29 @@ export default function ProductDetail() {
     <Layout>
       <div className="px-5 md:px-10 py-10">
 
-        {/* ── HERO IMAGE ──────────────────────────────────── */}
+        {/* Hero image */}
         <div className="relative w-full mb-3 overflow-hidden" style={{ height: "clamp(280px, 50vw, 580px)" }}>
-          <img
-            src={allImages[0]}
-            alt={product.name}
-            className="w-full h-full object-cover"
-          />
+          <img src={allImages[0]} alt={product.name} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
           <div className="absolute bottom-0 left-0 p-6 md:p-10">
             <p className="text-xs uppercase tracking-widest text-white/60 mb-2">{product.category}</p>
-            <h1 className="text-2xl md:text-4xl font-bold text-white leading-tight max-w-xl">
-              {product.name}
-            </h1>
-            <p className="text-lg md:text-2xl font-bold text-white mt-3">
-              ${product.price.toLocaleString()}
-            </p>
+            <h1 className="text-2xl md:text-4xl font-bold text-white leading-tight max-w-xl">{product.name}</h1>
+            <p className="text-lg md:text-2xl font-bold text-white mt-3">${product.price.toLocaleString()}</p>
           </div>
         </div>
 
-        {/* ── SECONDARY IMAGES ────────────────────────────── */}
+        {/* Secondary images */}
         {allImages.length > 1 && (
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
             {allImages.slice(1).map((img, idx) => (
-              <div
-                key={idx}
-                className="overflow-hidden"
-                style={{ height: "clamp(140px, 22vw, 260px)" }}
-              >
-                <img
-                  src={img}
-                  alt={`${product.name} view ${idx + 2}`}
-                  className="w-full h-full object-cover"
-                />
+              <div key={idx} className="overflow-hidden" style={{ height: "clamp(140px, 22vw, 260px)" }}>
+                <img src={img} alt={`${product.name} view ${idx + 2}`} className="w-full h-full object-cover" />
               </div>
             ))}
           </div>
         )}
 
-        {/* ── DETAILS ─────────────────────────────────────── */}
+        {/* Details */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 py-8" style={{ borderTop: "1px solid #e5e5e5" }}>
           <div>
             <h2 className="text-sm font-bold uppercase tracking-widest text-black mb-4">About This Piece</h2>
