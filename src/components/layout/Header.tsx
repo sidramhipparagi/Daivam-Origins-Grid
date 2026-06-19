@@ -2,7 +2,6 @@ import { Link } from "wouter";
 import { Search, X } from "lucide-react";
 import { useState } from "react";
 import { ContactModal } from "@/components/ContactModal";
-import { getAssetUrl } from "@/lib/utils";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +12,7 @@ export function Header() {
         <div className="flex h-14 items-center justify-between px-5 md:px-10">
           <Link href="/" className="flex items-center">
             {/* public/images/logo.png — Header logo */}
-            <img src={getAssetUrl("/images/logo.png")} alt="Daivam Origins" className="h-6 w-auto object-contain" />
+            <img src="/images/logo.png" alt="Daivam Origins" className="h-6 w-auto object-contain" />
           </Link>
 
           {/* Desktop Nav */}
@@ -43,7 +42,7 @@ export function Header() {
           <div className="flex h-14 items-center justify-between px-5" style={{ borderBottom: "1px solid #f0eeeb" }}>
             <Link href="/" className="flex items-center" onClick={() => setIsOpen(false)}>
               {/* public/images/logo.png — Header logo */}
-              <img src={getAssetUrl("/images/logo.png")} alt="Daivam Origins" className="h-6 w-auto object-contain" />
+              <img src="/images/logo.png" alt="Daivam Origins" className="h-6 w-auto object-contain" />
             </Link>
             <button className="text-black p-1" onClick={() => setIsOpen(false)}>
               <X size={18} strokeWidth={1.5} />

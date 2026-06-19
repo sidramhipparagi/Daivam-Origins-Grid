@@ -1,6 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
 import { articles } from "@/data";
-import { getAssetUrl } from "@/lib/utils";
 
 export default function Editorial() {
   return (
@@ -21,7 +20,7 @@ export default function Editorial() {
               className="relative block overflow-hidden group"
               style={{ height: "clamp(240px, 28vw, 380px)" }}
             >
-              <img src={getAssetUrl(article.imageUrl)} alt={article.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
+              <img src={article.imageUrl} alt={article.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
               <div className="absolute bottom-0 left-0 p-5 md:p-7">
                 <div className="flex items-center gap-3 mb-2">

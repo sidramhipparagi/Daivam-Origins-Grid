@@ -1,7 +1,6 @@
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "wouter";
 import { products, featuredProducts, articles } from "@/data";
-import { getAssetUrl } from "@/lib/utils";
 
 const NATARAJA_PRODUCT_URL = "/products/1";
 const NATARAJA_MEDIUM_URL =
@@ -40,7 +39,7 @@ export default function Home() {
               style={{ height: "clamp(300px, 52vw, 600px)" }}
             >
               <img
-                src={getAssetUrl("/images/img1.jpg")}
+                src="/images/img1.jpg"
                 alt="Ancient Crafts"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
               />
@@ -68,7 +67,7 @@ export default function Home() {
               className="col-span-1 relative block overflow-hidden group"
               style={{ height: "clamp(160px, 28vw, 320px)" }}
             >
-              <img src={getAssetUrl("/images/img2.png")} alt="South Indian Bronzes" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
+              <img src="/images/img2.png" alt="South Indian Bronzes" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/5 to-transparent" />
               <div className="absolute bottom-0 left-0 p-4 md:p-5">
                 <h3 className="text-white font-bold leading-tight" style={{ fontSize: "clamp(0.85rem, 2.2vw, 1.15rem)", fontWeight: 700 }}>
@@ -85,7 +84,7 @@ export default function Home() {
               className="col-span-1 relative block overflow-hidden group"
               style={{ height: "clamp(160px, 28vw, 320px)" }}
             >
-              <img src={getAssetUrl("/images/img3.png")} alt="Temple Traditions" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
+              <img src="/images/img3.png" alt="Temple Traditions" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/5 to-transparent" />
               <div className="absolute bottom-0 left-0 p-4 md:p-5">
                 <h3 className="text-white font-bold leading-tight" style={{ fontSize: "clamp(0.85rem, 2.2vw, 1.15rem)", fontWeight: 700 }}>
@@ -102,7 +101,7 @@ export default function Home() {
               className="col-span-1 relative block overflow-hidden group"
               style={{ height: "clamp(160px, 28vw, 320px)" }}
             >
-              <img src={getAssetUrl("/images/img4.png")} alt="Sacred Interiors" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
+              <img src="/images/img4.png" alt="Sacred Interiors" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/5 to-transparent" />
               <div className="absolute bottom-0 left-0 p-4 md:p-5">
                 <h3 className="text-white font-bold leading-tight" style={{ fontSize: "clamp(0.85rem, 2.2vw, 1.15rem)", fontWeight: 700 }}>
@@ -128,7 +127,7 @@ export default function Home() {
               className={`relative block overflow-hidden group ${i === 0 ? "md:col-span-2" : "md:col-span-1"}`}
               style={{ height: i === 0 ? "clamp(210px, 55vw, 460px)" : "clamp(190px, 50vw, 320px)" }}
             >
-              <img src={getAssetUrl(product.imageUrl)} alt={product.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
+              <img src={product.imageUrl} alt={product.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent" />
               <div className="absolute bottom-0 left-0 p-4 md:p-5">
                 <p className="text-[10px] uppercase tracking-widest text-white/65 mb-1">{product.category}</p>
@@ -153,7 +152,7 @@ export default function Home() {
               className="relative block overflow-hidden group"
               style={{ height: "clamp(190px, 50vw, 380px)" }}
             >
-              <img src={getAssetUrl(product.imageUrl)} alt={product.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
+              <img src={product.imageUrl} alt={product.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent" />
               <div className="absolute bottom-0 left-0 p-4">
                 <p className="text-[10px] uppercase tracking-widest text-white/65 mb-0.5">{product.category}</p>
@@ -198,7 +197,7 @@ export default function Home() {
               className="relative block overflow-hidden group"
               style={{ height: "clamp(200px, 28vw, 360px)" }}
             >
-              <img src={getAssetUrl(article.imageUrl)} alt={article.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
+              <img src={article.imageUrl} alt={article.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
               <div className="absolute bottom-0 left-0 p-5 md:p-6">
                 <p className="text-[10px] uppercase tracking-widest text-white/65 mb-1">

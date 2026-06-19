@@ -1,7 +1,6 @@
 import { Layout } from "@/components/layout/Layout";
 import { FaWhatsapp, FaInstagram } from "react-icons/fa";
 import { Mail } from "lucide-react";
-import { getAssetUrl } from "@/lib/utils";
 
 const CONTACT_ITEMS = [
   {
@@ -44,7 +43,7 @@ export default function Contact() {
           {/* public/images/img21.png — Contact hero */}
           <div className="relative overflow-hidden" style={{ height: "clamp(280px, 45vw, 520px)" }}>
             <img
-              src={getAssetUrl("/images/img21.png")}
+              src="/images/img21.png"
               alt="Ancient stone carving"
               className="w-full h-full object-cover"
             />

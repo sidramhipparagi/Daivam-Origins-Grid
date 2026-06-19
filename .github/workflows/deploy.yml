@@ -40,7 +40,7 @@ jobs:
         env:
           NODE_ENV: production
           # Custom domain (daivamorigins.com) serves from site root.
-          BASE_PATH: /Daivam-Origins-Grid/
+          BASE_PATH: /
 
       - name: Verify build output
         run: |
