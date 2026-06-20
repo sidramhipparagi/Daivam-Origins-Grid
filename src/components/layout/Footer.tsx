@@ -15,10 +15,7 @@ export function Footer() {
         <div>
           <h3 className="text-[10px] font-bold uppercase tracking-widest text-black mb-4">Shop</h3>
           <ul className="space-y-3">
-            <li><Link href="/products" className="text-xs text-black/60 hover:text-black transition-colors uppercase tracking-widest">All Products</Link></li>
-            <li><Link href="/categories/Bronze Sculptures" className="text-xs text-black/60 hover:text-black transition-colors uppercase tracking-widest">Bronze</Link></li>
-            <li><Link href="/categories/Stone Carvings" className="text-xs text-black/60 hover:text-black transition-colors uppercase tracking-widest">Stone</Link></li>
-            <li><Link href="/categories/Terracotta Art" className="text-xs text-black/60 hover:text-black transition-colors uppercase tracking-widest">Terracotta</Link></li>
+            <li><Link href="/products/nataraja" className="text-xs text-black/60 hover:text-black transition-colors uppercase tracking-widest">Nataraja</Link></li>
           </ul>
         </div>
 

@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { products, featuredProducts, articles } from "@/data";
 import { ValueCarousel } from "@/components/layout/ValueCarousel";
 
-const NATARAJA_PRODUCT_URL = "/products/1";
+const NATARAJA_PRODUCT_URL = "/products/nataraja";
 const NATARAJA_MEDIUM_URL =
   "https://medium.com/@daivamorigins/nataraja-the-cosmic-dance-of-shiva-8f162f5b8c66";
 
@@ -40,7 +40,7 @@ export default function Home() {
               style={{ height: "clamp(300px, 52vw, 600px)" }}
             >
               <img
-                src="/images/img1.jpg"
+                src="/images/img1.webp"
                 alt="Ancient Crafts"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
               />
@@ -68,7 +68,7 @@ export default function Home() {
               className="col-span-1 relative block overflow-hidden group"
               style={{ height: "clamp(160px, 28vw, 320px)" }}
             >
-              <img src="/images/img2.png" alt="South Indian Bronzes" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
+              <img src="/images/img2.webp" alt="South Indian Bronzes" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/5 to-transparent" />
               <div className="absolute bottom-0 left-0 p-4 md:p-5">
                 <h3 className="text-white font-bold leading-tight" style={{ fontSize: "clamp(0.85rem, 2.2vw, 1.15rem)", fontWeight: 700 }}>
@@ -104,14 +104,14 @@ export default function Home() {
       {/* ── FEATURED PRODUCTS ────────────────────────────────── */}
       <section className="px-5 md:px-10 pb-12">
         <div className="flex items-baseline justify-between mb-5">
-          <p className="text-xs uppercase tracking-widest text-black font-medium">Featured Pieces</p>
-          <Link href="/products" className="text-xs uppercase tracking-widest text-black underline underline-offset-4">View All</Link>
+          <p className="text-xs uppercase tracking-widest text-black font-medium">Featured</p>
+          {/*<Link href="/products" className="text-xs uppercase tracking-widest text-black underline underline-offset-4">View All</Link> */}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
           {featuredProducts.map((product, i) => (
             <Link
               key={product.id}
-              href={`/products/${product.id}`}
+               href={`/products/${product.slug}`}
               className={`relative block overflow-hidden group ${i === 0 ? "md:col-span-2" : "md:col-span-1"}`}
               style={{ height: i === 0 ? "clamp(210px, 55vw, 460px)" : "clamp(190px, 50vw, 320px)" }}
             >
@@ -120,7 +120,7 @@ export default function Home() {
               <div className="absolute bottom-0 left-0 p-4 md:p-5">
                 <p className="text-[10px] uppercase tracking-widest text-white/65 mb-1">{product.category}</p>
                 <h3 className="text-sm md:text-base font-bold text-white leading-snug line-clamp-2">{product.name}</h3>
-                <p className="text-sm font-semibold text-white mt-1">${product.price.toLocaleString()}</p>
+                {/*<p className="text-sm font-semibold text-white mt-1">${product.price.toLocaleString()}</p>*/}
               </div>
             </Link>
           ))}
@@ -136,7 +136,7 @@ export default function Home() {
           {products.map((product) => (
             <Link
               key={product.id}
-              href={`/products/${product.id}`}
+              href={`/products/${product.slug}`}
               className="relative block overflow-hidden group"
               style={{ height: "clamp(190px, 50vw, 380px)" }}
             >
@@ -145,7 +145,7 @@ export default function Home() {
               <div className="absolute bottom-0 left-0 p-4">
                 <p className="text-[10px] uppercase tracking-widest text-white/65 mb-0.5">{product.category}</p>
                 <h3 className="text-sm font-bold text-white leading-snug line-clamp-2">{product.name}</h3>
-                <p className="text-sm font-semibold text-white mt-0.5">${product.price.toLocaleString()}</p>
+                {/*<p className="text-sm font-semibold text-white mt-0.5">${product.price.toLocaleString()}</p>*/}
               </div>
             </Link>
           ))}

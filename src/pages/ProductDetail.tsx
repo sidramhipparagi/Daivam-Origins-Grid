@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { useParams } from "wouter";
 import { ContactModal } from "@/components/ContactModal";
@@ -7,9 +7,13 @@ import { X, ZoomIn } from "lucide-react";
 
 export default function ProductDetail() {
   const params = useParams();
-  const id = Number(params.id);
-  const product = products.find((p) => p.id === id);
+  const slug = params.slug;
+  const product = products.find((p) => p.slug === slug);
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [slug]);
 
   if (!product) {
     return (
@@ -70,23 +74,23 @@ export default function ProductDetail() {
           </div>
         </div>
 
-        {/* Secondary images — clean, clickable */}
+        {/* Secondary images — square containers, clickable for full view */}
         {allImages.length > 1 && (
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
+          <div className="grid grid-cols-3 md:grid-cols-4 gap-2 md:gap-3 mb-8">
             {allImages.slice(1).map((img, idx) => (
               <div
                 key={idx}
                 className="relative overflow-hidden cursor-zoom-in group"
-                style={{ height: "clamp(140px, 22vw, 260px)" }}
+                style={{ aspectRatio: "1 / 1" }}
                 onClick={() => setLightboxSrc(img)}
               >
                 <img
                   src={img}
                   alt={`${product.name} view ${idx + 2}`}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.01]"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
-                <div className="absolute top-3 right-3 bg-white/80 backdrop-blur-sm p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <ZoomIn size={13} strokeWidth={1.5} className="text-black" />
+                <div className="absolute top-2 right-2 bg-white/80 backdrop-blur-sm p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <ZoomIn size={12} strokeWidth={1.5} className="text-black" />
                 </div>
               </div>
             ))}
