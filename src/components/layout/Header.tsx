@@ -17,7 +17,7 @@ export function Header() {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-10 text-xs font-medium tracking-widest uppercase text-black">
-            <Link href="/products" className="hover:opacity-50 transition-opacity">Shop</Link>
+            <Link href="/products/nataraja" className="hover:opacity-50 transition-opacity">Shop</Link>
             <Link href="/editorial" className="hover:opacity-50 transition-opacity">Editorial</Link>
             <ContactModal>
               <button className="hover:opacity-50 transition-opacity uppercase tracking-widest text-xs font-medium">Contact</button>
