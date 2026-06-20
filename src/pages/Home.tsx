@@ -1,6 +1,7 @@
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "wouter";
 import { products, featuredProducts, articles } from "@/data";
+import { ValueCarousel } from "@/components/layout/ValueCarousel";
 
 const NATARAJA_PRODUCT_URL = "/products/1";
 const NATARAJA_MEDIUM_URL =
@@ -71,7 +72,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/5 to-transparent" />
               <div className="absolute bottom-0 left-0 p-4 md:p-5">
                 <h3 className="text-white font-bold leading-tight" style={{ fontSize: "clamp(0.85rem, 2.2vw, 1.15rem)", fontWeight: 700 }}>
-                  South Indian Bronzes
+                  South Indian Artforms
                 </h3>
               </div>
             </a>
@@ -93,25 +94,12 @@ export default function Home() {
               </div>
             </a>
 
-            {/* public/images/img4.png — Sacred Interiors → Nataraja Medium article */}
-            <a
-              href={NATARAJA_MEDIUM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="col-span-1 relative block overflow-hidden group"
-              style={{ height: "clamp(160px, 28vw, 320px)" }}
-            >
-              <img src="/images/img4.png" alt="Sacred Interiors" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/5 to-transparent" />
-              <div className="absolute bottom-0 left-0 p-4 md:p-5">
-                <h3 className="text-white font-bold leading-tight" style={{ fontSize: "clamp(0.85rem, 2.2vw, 1.15rem)", fontWeight: 700 }}>
-                  Sacred Interiors
-                </h3>
-              </div>
-            </a>
+          
 
           </div>
         </section>
+
+         <ValueCarousel />
 
       {/* ── FEATURED PRODUCTS ────────────────────────────────── */}
       <section className="px-5 md:px-10 pb-12">
