@@ -31,7 +31,7 @@
     <meta property="og:url" content="https://www.daivamorigins.com/" />
     <meta property="og:image" content="https://www.daivamorigins.com/images/preview-card.jpg" />
     <meta property="og:image:secure_url" content="https://www.daivamorigins.com/images/preview-card.jpg" />
-    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Daivam Origins — Luxury Ancient Indian Crafts &amp; Rare Artisan Artifacts" />
@@ -150,6 +150,17 @@
         "addressCountry": "IN"
       }
     }
+    </script>
+
+    <!-- SPA redirect handler for GitHub Pages -->
+    <script>
+      (function () {
+        var redirect = sessionStorage.getItem('spa-redirect');
+        if (redirect) {
+          sessionStorage.removeItem('spa-redirect');
+          window.history.replaceState(null, '', redirect);
+        }
+      })();
     </script>
 
     <script type="module" crossorigin src="/assets/index-DB_o3qpi.js"></script>
